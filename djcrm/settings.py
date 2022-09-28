@@ -22,7 +22,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 
 
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['djcrm-maka.herokuapp.com', '127.0.0.1']
 
 
 # Application definition
