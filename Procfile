@@ -1,1 +1,1 @@
-web: gunicorn diulibrary.wsgi --log-file -
+web: gunicorn djcrm.wsgi
