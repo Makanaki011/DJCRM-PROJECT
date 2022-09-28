@@ -1,0 +1,240 @@
+
+
+<!-- # app_name= "leads"
+
+
+# urlpatterns = [
+#     path('', lead_Lists),
+#     path('<str:pk>/', lead_detail),
+#     path('<str:pk>/update/', lead_update),
+#     path('<str:pk>/delete/', lead_delete),
+#     path('add-lead/', lead_create),
+    
+    
+    
+# ] -->
+
+<!-- 
+path('leads/', include('leads.urls', namespace="leads")),
+
+
+urlpatterns = [
+    path('', lead_Lists),
+    path('add-lead/', lead_create),
+    path('leads/<str:pk>/', lead_detail),
+    path('leads/<str:pk>/update/', lead_update),
+    path('leads/<str:pk>/delete/', lead_delete),
+]
+
+
+
+
+
+# def lead_create(request):
+#     form = LeadForm()
+#     if request.method == "POST":
+#         form = LeadForm(request.POST)
+#         if form.is_valid():
+#             first_name = form.cleaned_data['first_name']
+#             last_name = form.cleaned_data['last_name']
+#             age = form.cleaned_data['age']
+#             agent = Agent.objects.first()
+#             Lead.objects.create(
+#                 first_name=first_name,
+#                 last_name=last_name,
+#                 age=age,
+#                 agent=agent
+#             )
+#             return redirect("/")
+#     context = {
+#         "form": form
+#     }
+
+#     return render(request, "lead_create.html", context)
+
+
+#   Home_page
+# def lead_Lists(request):
+#     leads = Lead.objects.all()
+#     context = {
+#         "leads": leads
+#     }
+#     return render(request, "lead_Lists.html", context)  
+
+organisation = models.ForeignKey(UserProfile, on_delete=models.CASCADE)
+
+
+    # def get_queryset(self):
+    #     queryset = Lead.objects.all()
+    #     if self.request.user.is_agent:
+    #         queryset = queryset.filter(agent__user=self.request.user)
+    #     return queryset  
+          
+
+
+# def lead_create(request):
+#     form = LeadModelForm()
+#     if request.method == "POST":
+#         form = LeadModelForm(request.POST)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("/leads")
+#     context = {
+#         "form": form
+#     }
+#     return render(request, "lead_create.html", context) -->
+
+
+
+
+<!-- #  details of each leads
+
+# def lead_detail(request, pk):
+#     lead = Lead.objects.get(id=pk)
+#     context ={
+#         "lead": lead
+#     }
+#     return render(request, "lead_detail.html", context) -->
+
+
+<!-- 
+# def lead_update(request, pk):
+#     lead = Lead.objects.get(id=pk)
+#     form = LeadModelForm(instance=lead)
+#     if request.method == "POST":
+#         form = LeadModelForm(request.POST, instance=lead)
+#         if form.is_valid():
+#             form.save()
+#             return redirect("/leads")
+#     context = {
+#         "form" : form,
+#         "lead" : lead
+        
+#     }
+#     return render(request, "lead_update.html", context)
+
+
+ -->
+
+
+
+<!-- 
+ # def lead_delete(request, pk):
+#     lead = Lead.objects.get(id=pk)
+#     lead.delete()
+#     return redirect("/leads") -->
+
+<!-- <a href="{% url 'agents:agent-list' %}" class="mr-5 hover:text-blue-600">Agents</a> -->
+
+<!-- 
+    <h2> This is all our leads</h2>
+
+    <a href="{% url 'leads:lead-create' %}">Create a new lead</a>
+
+{% for lead in leads %}
+    <div class="lead">
+        <a href="{% url 'leads:lead-detail' lead.pk %}">{{ lead.first_name }} {{ lead.last_name }}</a>
+    </div>
+
+{% endfor %} -->
+
+
+<!-- # path('agents/', include('agents.urls', namespace="agents")),
+# 'agents', -->
+
+{% if request.user.is_organisor %}
+{% endif %}
+
+
+
+<!-- # class LeadForm(forms.Form):
+#         first_name = forms.CharField()
+#         last_name = forms.CharField()
+#         age = forms.IntegerField(min_value=0) -->
+
+
+
+
+    <!-- <a href="{% url 'leads:lead-list' %}">Go Back Home 🏠</a>
+    <h2> First_Name: {{ lead.first_name }}</h2>
+    <h2> Last_Name : {{ lead.last_name }}</h2>
+    <p>Age : {{ lead.age }}</p>
+    <p>Agent : {{ lead.agent }}</p>
+    <a href="{% url 'leads:lead-update' lead.pk %}">Update</a>
+    <a href="{% url 'leads:lead-delete' lead.pk %}">Delete</a> -->
+
+
+
+
+<!-- <a href="{% url 'leads:lead-list' %}">Go Back Home 🏠</a>
+<h2> First_Name: {{ lead.first_name }}</h2>
+<h2> Last_Name : {{ lead.last_name }}</h2>
+<p>Age : {{ lead.age }}</p>
+<p>Agent : {{ lead.agent }}</p>
+<a href="{% url 'leads:lead-update' lead.pk %}">Update</a>
+<a href="{% url 'leads:lead-delete' lead.pk %}">Delete</a> -->
+
+
+
+
+
+
+
+
+
+
+
+<!-- <a href="{% url 'leads:lead-detail' lead.pk %}">Go back to {{ lead.first_name }} {{ lead.last_name }}</a>
+<hr>
+<br>
+<h1>UPDATE LEAD: {{ lead.first_name }} {{ lead.last_name }}</h1>
+<form method="POST">
+   {% csrf_token %}
+   {{ form.as_p }}
+   <button type="submit">Submit</button>
+</form> -->
+
+
+
+
+
+
+
+{% if unassigned_leads.exist %}
+{% endfor %}
+
+          <div class="mt-4 flex flex-wrap -m-4">
+            {% for lead in unassigned_leads %}
+            
+            <div>
+              <h1 class="text-4xl text-gray-800">unassigned leads</h1>
+            </div>
+            <div class="p-4 lg:w-1/2 md:w-full">
+              <div class="flex border-2 rounded-lg border-gray-200 border-opacity-50 p-8 sm:flex-row flex-col">
+                <div
+                  class="w-16 h-16 sm:mr-8 sm:mb-0 mb-4 inline-flex items-center justify-center rounded-full bg-indigo-100 text-indigo-500 flex-shrink-0">
+                  <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                    class="w-8 h-8" viewBox="0 0 24 24">
+                    <path d="M22 12h-4l-3 9L9 3l-3 9H2"></path>
+                  </svg>
+                </div>
+                <div class="flex-grow">
+                  <h2 class="text-gray-900 text-lg title-font font-medium mb-3">{{ lead.first_name }} {{ lead.last_name }}
+                  </h2>
+                  <p class="leading-relaxed text-base">Blue bottle crucifix vinyl post-ironic four dollar toast vegan
+                    taxidermy. Gastropub indxgo juice poutine.</p>
+                  <a href="{% url 'leads:lead-detail' lead.pk %}" class="mt-3 text-indigo-500 inline-flex items-center">View
+                    this lead
+                    <svg fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                      class="w-4 h-4 ml-2" viewBox="0 0 24 24">
+                      <path d="M5 12h14M12 5l7 7-7 7"></path>
+                    </svg>
+                  </a>
+                </div>
+              </div>
+            </div>
+         {% endfor %}
+
+      {% endif %}
+
+
