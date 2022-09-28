@@ -83,11 +83,11 @@ WSGI_APPLICATION = 'djcrm.wsgi.application'
 DATABASES={
    'default':{
       'ENGINE': 'django.db.backends.postgresql_psycopg2',
-      'NAME': env("BD_NAME"),
-      'USER': env("BD_USER"),
-      'PASSWORD': env("BD_PASSWORD"),
-      'HOST': env("BD_HOST"),
-      'PORT': env("BD_PORT"),
+      'NAME': env("DB_NAME"),
+      'USER': env("DB_USER"),
+      'PASSWORD': env("DB_PASSWORD"),
+      'HOST': env("DB_HOST"),
+      'PORT': env("DB_PORT"),
    }
 }
 
