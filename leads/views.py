@@ -12,6 +12,7 @@ from django.shortcuts import redirect
 from django.contrib.auth.mixins import LoginRequiredMixin
 from agents.mixins import OrganisorAndLoginRequiredMixin
 
+
 # Create your views here.
 
 def landing_page(request):

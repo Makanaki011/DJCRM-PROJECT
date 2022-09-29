@@ -9,3 +9,6 @@ To run this project you will need to set your environment variables.
 3. Run `export READ_DOT_ENV_FILE=True` inside your terminal so that your environment variables file will be read.
 
 
+https://djcrm-maka.herokuapp.com/
+
+
