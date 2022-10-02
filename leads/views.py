@@ -1,4 +1,4 @@
-import datetime
+# import datetime
 from audioop import reverse
 from django.core.mail import send_mail
 from multiprocessing import context
@@ -139,11 +139,11 @@ class LeadCreateView(OrganisorAndLoginRequiredMixin, CreateView):
         lead = form.save(commit=False)
         lead.organisation = self.request.user.userprofile
         lead.save()
-        send_mail(
-            subject="A lead as been created",
-            message="Go to the site to see the new lead", from_email="test@test.com",
-            recipient_list=["test2@.com"]
-            )
+        # send_mail(
+        #     subject="A lead as been created",
+        #     message="Go to the site to see the new lead", from_email="test@test.com",
+        #     recipient_list=["test2@.com"]
+        #     )
         return super(LeadCreateView, self).form_valid(form)
 
 
