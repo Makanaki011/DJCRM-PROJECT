@@ -305,7 +305,7 @@ class LeadCategoryUpdateView(LoginRequiredMixin, UpdateView):
             if lead_before_update.category != converted_category:
                 # this lead has now been converted
                 instance.converted_date = datetime.datetime.now()
-        instance.save()
+                instance.save()
         return super(LeadCategoryUpdateView, self).form_valid(form)
 			    
 
